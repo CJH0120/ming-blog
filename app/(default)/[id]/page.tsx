@@ -67,14 +67,13 @@ export async function generateStaticParams() {
   }))
 }
 
-type Props = {
-  params: { id: string }
-}
-
 export const generateMetadata = async ({ params }: any): Promise<Metadata> => {
   const data = await getPostMeta(params.id)
   return {
     title: `${data.title} | ${process.env.NEXT_PUBLIC_ID}의 리뷰`,
     description: `${data.content.map((v, idx) => `${idx + 1}.${v}`)}`,
   }
+}
+type Props = {
+  params: { id: string }
 }

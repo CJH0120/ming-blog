@@ -27,7 +27,7 @@ export const getPost = async (): Promise<{ id: string }[]> => {
 }
 
 export const getPostDetail = async (id: string): Promise<API.Detail> => {
-  return fetcher(`${process.env.NEXT_PUBLIC_BASE_URL}/api/post/getpost/${id}`, {
+  return fetcher(`/api/post/getpost/${id}`, {
     method: 'GET',
     headers: {
       'cache-control': 'no-cache',
