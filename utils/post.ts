@@ -17,7 +17,6 @@ export const addPost = async (writeData: writeData, addData: AddCoupangProps[]) 
 export const getPost = async (): Promise<{ id: string }[]> => {
   return fetcher(`${process.env.NEXT_PUBLIC_BASE_URL}/api/post/getpost`, {
     method: 'GET',
-    cache: 'force-cache',
     headers: {
       'cache-control': 'no-cache',
       pragma: 'no-cache',
@@ -27,7 +26,7 @@ export const getPost = async (): Promise<{ id: string }[]> => {
 }
 
 export const getPostDetail = async (id: string): Promise<API.Detail> => {
-  return fetcher(`/api/post/getpost/${id}`, {
+  return fetcher(`${process.env.NEXT_PUBLIC_BASE_URL}/api/post/getpost/${id}`, {
     method: 'GET',
     headers: {
       'cache-control': 'no-cache',
@@ -40,7 +39,6 @@ export const getPostDetail = async (id: string): Promise<API.Detail> => {
 export const getPostMeta = async (id: string): Promise<API.Meta> => {
   return fetcher(`${process.env.NEXT_PUBLIC_BASE_URL}/api/post/getpost/meta/${id}`, {
     method: 'GET',
-    cache: 'default',
     headers: {
       'cache-control': 'no-cache',
       pragma: 'no-cache',
