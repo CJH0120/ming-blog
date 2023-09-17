@@ -15,7 +15,7 @@ export const addPost = async (writeData: writeData, addData: AddCoupangProps[]) 
 }
 
 export const getPost = async (): Promise<{ id: string }[]> => {
-  return fetcher(`http://127.0.0.1:3000/api/post/getpost`, {
+  return fetcher(`${process.env.NEXT_PUBLIC_BASE_URL}/api/post/getpost`, {
     method: 'GET',
     cache: 'force-cache',
     headers: {
@@ -27,7 +27,7 @@ export const getPost = async (): Promise<{ id: string }[]> => {
 }
 
 export const getPostDetail = async (id: string): Promise<API.Detail> => {
-  return fetcher(`http://127.0.0.1:3000/api/post/getpost/${id}`, {
+  return fetcher(`${process.env.NEXT_PUBLIC_BASE_URL}/api/post/getpost/${id}`, {
     method: 'GET',
     headers: {
       'cache-control': 'no-cache',
@@ -38,7 +38,7 @@ export const getPostDetail = async (id: string): Promise<API.Detail> => {
   })
 }
 export const getPostMeta = async (id: string): Promise<API.Meta> => {
-  return fetcher(`http://127.0.0.1:3000/api/post/getpost/meta/${id}`, {
+  return fetcher(`${process.env.NEXT_PUBLIC_BASE_URL}/api/post/getpost/meta/${id}`, {
     method: 'GET',
     cache: 'default',
     headers: {
