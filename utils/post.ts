@@ -13,30 +13,31 @@ export const addPost = async (writeData: writeData, addData: AddCoupangProps[]) 
     body: JSON.stringify({ writeData, addData }),
   })
 }
-export const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:3000'
-
+const apiUrl = process.env.API_URL || 'http://127.0.0.1:3000'
 export const getPost = async (): Promise<{ id: string }[]> => {
-  return fetcher(`${API_URL}/api/post/getpost`, {
+  return fetcher(`${apiUrl}/api/post/getpost`, {
     method: 'GET',
     cache: 'force-cache',
+    next: { revalidate: 15 },
   })
 }
 
 export const getPostDetail = async (id: string): Promise<API.Detail> => {
-  return fetcher(`${API_URL}/api/post/getpost/${id}`, {
+  return fetcher(`${apiUrl}/api/post/getpost/${id}`, {
     method: 'GET',
+    cache: 'no-store',
     headers: {
       'cache-control': 'no-cache',
       pragma: 'no-cache',
       'Content-Type': 'application/json;charset=utf-8',
     },
-    next: { revalidate: 15 },
   })
 }
 export const getPostMeta = async (id: string): Promise<API.Meta> => {
-  return fetcher(`${API_URL}/api/post/getpost/meta/${id}`, {
+  return fetcher(`${apiUrl}/api/post/getpost/meta/${id}`, {
     method: 'GET',
     cache: 'force-cache',
+    next: { revalidate: 15 },
   })
 }
 
