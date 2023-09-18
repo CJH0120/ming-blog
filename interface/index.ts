@@ -6,6 +6,7 @@ namespace API {
     comment: string
     title: string
     regDate: string
+    isloading?: boolean
   }
   export interface Detail {
     post: Post

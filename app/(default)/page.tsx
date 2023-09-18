@@ -7,7 +7,6 @@ import { useEffect, useState } from 'react'
 export default function Home() {
   const [activeMenu, setActiveMenu] = useState<string>('')
   const { isLoading, mutate, data } = useSelect(activeMenu ?? '')
-
   const handleMenu = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (e.currentTarget.value === activeMenu) {
       return setActiveMenu('')

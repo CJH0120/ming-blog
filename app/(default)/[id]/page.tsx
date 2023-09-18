@@ -29,7 +29,7 @@ const PostId = async ({ params }: Props) => {
         이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.
       </p>
       <div className="w-full flex mt-10 justify-between items-center flex-col sm:flex-row gap-5">
-        <div className="w-full">
+        <div className="w-full flex justify-start	 items-center">
           {data.prev && (
             <Link href={`/${data.prev.id}`} className="flex flex-col gap-2 sm:w-[220px] border p-2 ">
               <span>이전</span> <p>{data.prev.title}</p>
@@ -38,7 +38,7 @@ const PostId = async ({ params }: Props) => {
         </div>
         <div className="w-full">
           {data.next && (
-            <Link href={`/${data.next.id}`} className="flex flex-col gap-2  sm:w-[220px] border p-2 w-full">
+            <Link href={`/${data.next.id}`} className="flex flex-col gap-2  sm:w-[220px] border p-2 w-full flex justify-end	 items-center">
               <span>다음</span> <p>{data.next.title}</p>
             </Link>
           )}
