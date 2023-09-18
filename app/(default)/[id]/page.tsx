@@ -61,7 +61,7 @@ const PostCard = ({ coupangLink, imageLink, point1, point2, point3, productName 
 
 // 내생각에는 얘는 그냥 빌드를 위한 함수 같음
 export async function generateStaticParams() {
-  const posts = await getPost() // 내림차순으로 정렬한 모든 게시글을 불러와서
+  const posts = await getPost()
   return posts.map((post: { id: string }) => ({
     postId: post.id.toString(),
   }))
