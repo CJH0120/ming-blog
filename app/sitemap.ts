@@ -1,8 +1,19 @@
 import { getPost } from '@/utils/post'
+import { MetadataRoute } from 'next'
 
-export default async function Sitemap() {
+export default async function Sitemap(): Promise<MetadataRoute.Sitemap> {
   const post = await getPost()
-  const posts = post.map((v) => ({ url: process.env.NEXT_PUBLIC_BASE_URL + `/${v.id}`, lastModified: new Date() }))
-
-  return [...posts]
+  const posts: MetadataRoute.Sitemap = post.map((v) => ({
+    url: process.env.NEXT_PUBLIC_BASE_URL + `${v.id}`,
+    lastModified: new Date(),
+    changeFrequency: 'always',
+  }))
+  return [
+    {
+      url: 'https://www.mmew.site/',
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+    },
+    ...posts,
+  ]
 }
