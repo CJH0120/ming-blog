@@ -24,10 +24,15 @@ export default function Home() {
         className="py-10 h-full h-full grid max-w-[1200px] m-auto gap-5 justify-center sm:justify-start"
         style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(230px, auto))' }}
       >
-        {data?.map((v) => (
-          <Card key={v.id} title={v.title} comment={v.comment} id={v.id} keyword={v.keyword} regDate={v.regDate} thumbnail={v.thumbnail} />
-        ))}
+        {!isLoading &&
+          data?.map((v) => <Card key={v.id} title={v.title} comment={v.comment} id={v.id} keyword={v.keyword} regDate={v.regDate} thumbnail={v.thumbnail} />)}
+        {isLoading && Dummy.map((v, idx) => <Loaing key={idx} />)}
       </div>
     </>
   )
 }
+
+const Loaing = () => {
+  return <div className="w-[285px] h-[388px] sm:w-[285px] sm:h-[404px] shadow  animate-pulse bg-gray-200 rounded-lg dark:bg-gray-800"></div>
+}
+const Dummy: string[] = ['', '', '', '', '', '', '', '']
