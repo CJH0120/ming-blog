@@ -13,16 +13,17 @@ export const addPost = async (writeData: writeData, addData: AddCoupangProps[]) 
     body: JSON.stringify({ writeData, addData }),
   })
 }
+export const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:3000'
 
 export const getPost = async (): Promise<{ id: string }[]> => {
-  return fetcher(`${process.env.NEXT_PUBLIC_BASE_URL}/api/post/getpost`, {
+  return fetcher(`${API_URL}/api/post/getpost`, {
     method: 'GET',
     cache: 'force-cache',
   })
 }
 
 export const getPostDetail = async (id: string): Promise<API.Detail> => {
-  return fetcher(`${process.env.NEXT_PUBLIC_BASE_URL}/api/post/getpost/${id}`, {
+  return fetcher(`${API_URL}/api/post/getpost/${id}`, {
     method: 'GET',
     headers: {
       'cache-control': 'no-cache',
@@ -33,7 +34,7 @@ export const getPostDetail = async (id: string): Promise<API.Detail> => {
   })
 }
 export const getPostMeta = async (id: string): Promise<API.Meta> => {
-  return fetcher(`${process.env.NEXT_PUBLIC_BASE_URL}/api/post/getpost/meta/${id}`, {
+  return fetcher(`${API_URL}/api/post/getpost/meta/${id}`, {
     method: 'GET',
     cache: 'force-cache',
   })
