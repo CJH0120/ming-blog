@@ -2,6 +2,9 @@
 const nextConfig = {
   experimental: {
     appDir: true,
+    env: {
+      PORT: '3000',
+    },
   },
 }
 
