@@ -60,13 +60,15 @@ const PostCard = ({ coupangLink, imageLink, point1, point2, point3, productName 
           <div className=" w-[250px] h-[250px] sm:w-[300px] sm:h-[300px]  m-auto  sm:m-0 relative  flex " style={{ flex: '0 0 auto;' }}>
             <ImageProxy src={imageLink} />
           </div>
-          <button className="hidden sm:block w-full group relative inline-block overflow-hidden border border-indigo-600 px-8 py-3 focus:outline-none focus:ring">
+          <Link
+            href={coupangLink}
+            target="_blank"
+            className=" hidden sm:block mt-5 w-full group relative inline-block overflow-hidden border border-indigo-600 px-8 py-3 focus:outline-none focus:ring"
+          >
             <span className="absolute inset-y-0 left-0 w-[2px] bg-indigo-600 transition-all group-hover:w-full group-active:bg-indigo-500"></span>
 
-            <Link href={coupangLink} target="_blank" className="relative text-sm font-medium text-indigo-600 transition-colors group-hover:text-white">
-              자세히 보기
-            </Link>
-          </button>
+            <span className="relative text-sm font-medium text-indigo-600 transition-colors group-hover:text-white">자세히 보기</span>
+          </Link>
         </div>
         <div className="flex flex-col gap-3 py-3">
           <p className="font-bold sm:text-xl ">▪ {point1}</p>
