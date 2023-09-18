@@ -4,7 +4,6 @@ import Card from '@/components/card'
 import SubHeader from '@/components/subHeader'
 import { useSelect } from '@/utils/apiHook'
 import { useEffect, useState } from 'react'
-
 export default function Home() {
   const [activeMenu, setActiveMenu] = useState<string>('')
   const { isLoading, mutate, data } = useSelect(activeMenu ?? '')
@@ -15,7 +14,6 @@ export default function Home() {
     }
     setActiveMenu(e.currentTarget.value)
   }
-
   useEffect(() => {
     mutate()
   }, [activeMenu])
