@@ -1,3 +1,4 @@
+'use server'
 import ImageProxy from '@/components/Image'
 import { usePage } from '@/utils/apiHook'
 import { getPost, getPostDetail, getPostMeta } from '@/utils/post'
@@ -62,7 +63,7 @@ const PostCard = ({ coupangLink, imageLink, point1, point2, point3, productName 
 export async function generateStaticParams() {
   const posts = await getPost() // 내림차순으로 정렬한 모든 게시글을 불러와서
   return posts.map((post: { id: string }) => ({
-    postId: post.id.toString(),
+    postId: post.id,
   }))
 }
 
