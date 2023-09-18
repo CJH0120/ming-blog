@@ -58,7 +58,7 @@ const PostCard = ({ coupangLink, imageLink, point1, point2, point3, productName 
     </div>
   )
 }
-
+export const runtime = 'edge'
 // 내생각에는 얘는 그냥 빌드를 위한 함수 같음
 export async function generateStaticParams() {
   const posts = await getPost()
