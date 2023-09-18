@@ -10,6 +10,8 @@ namespace API {
   export interface Detail {
     post: Post
     product: Product[]
+    prev: Both
+    next: Both
   }
   export interface Category {
     id: number | undefined
@@ -21,6 +23,11 @@ namespace API {
     title: string
     content: string[]
   }
+}
+
+interface Both {
+  id: number
+  title: string
 }
 
 interface Product {

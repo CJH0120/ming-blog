@@ -7,10 +7,17 @@ import { notFound } from 'next/navigation'
 
 const PostId = async ({ params }: Props) => {
   const data = await getPostDetail(params.id)
-  if (!data.product.length) return notFound()
+  if (!data.post) return notFound()
+  const dateObject: any = new Date(data.post.regDate)
+  const year: number = dateObject.getFullYear()
+  const month: number = dateObject.getMonth() + 1
+  const day: number = dateObject.getDate()
   return (
     <div className="h-full w-full max-w-[900px] m-auto py-10">
       <h2 className="text-3xl font-bold mb-4">{data.post?.title}</h2>
+      <p className="my-5 w-full text-right	" style={{ color: '#E2E2E2' }}>
+        {`${year}년 ${month}월 ${day}일`} 작성
+      </p>
       <div className="break-words whitespace-pre-line">
         <b>{data.post.keyword}</b>을 찾고 계신가요? {process.env.NEXT_PUBLIC_ID}가 직접 선별한 가성비 좋은 상품을 안내해 드리겠습니다
       </div>
@@ -18,7 +25,25 @@ const PostId = async ({ params }: Props) => {
       {data.product.map((v) => (
         <PostCard {...v} key={v.productName} />
       ))}
-      <p className="mt-5 ">이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
+      <p className="mt-5 w-full text-center " style={{ color: '#E2E2E2' }}>
+        이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.
+      </p>
+      <div className="w-full flex mt-10 justify-between items-center flex-col sm:flex-row gap-5">
+        <div className="w-full">
+          {data.prev && (
+            <Link href={`/${data.prev.id}`} className="flex flex-col gap-2 sm:w-[220px] border p-2 ">
+              <span>이전</span> <p>{data.prev.title}</p>
+            </Link>
+          )}
+        </div>
+        <div className="w-full">
+          {data.next && (
+            <Link href={`/${data.next.id}`} className="flex flex-col gap-2  sm:w-[220px] border p-2 w-full">
+              <span>다음</span> <p>{data.next.title}</p>
+            </Link>
+          )}
+        </div>
+      </div>
     </div>
   )
 }
@@ -29,9 +54,10 @@ const PostCard = ({ coupangLink, imageLink, point1, point2, point3, productName 
   return (
     <div className="flex flex-col w-full h-auto mt-10 ">
       <h3 className="text-xl font-bold sm:text-2xl">{productName}</h3>
+
       <div className="flex flex-col sm:flex-row  relative mt-5 sm:gap-10">
         <div className="m-auto sm:m-0 w-full sm:w-[300px]   flex justify-center items-center flex-col gap-5">
-          <div className=" w-[250px] h-[250px] sm:w-[300px] sm:h-[300px]  m-auto  sm:m-0 relative border flex " style={{ flex: '0 0 auto;' }}>
+          <div className=" w-[250px] h-[250px] sm:w-[300px] sm:h-[300px]  m-auto  sm:m-0 relative  flex " style={{ flex: '0 0 auto;' }}>
             <ImageProxy src={imageLink} />
           </div>
           <button className="hidden sm:block w-full group relative inline-block overflow-hidden border border-indigo-600 px-8 py-3 focus:outline-none focus:ring">
@@ -43,9 +69,9 @@ const PostCard = ({ coupangLink, imageLink, point1, point2, point3, productName 
           </button>
         </div>
         <div className="flex flex-col gap-3 py-3">
-          <p className="text-base sm:text-xl">▪ {point1}</p>
-          <p className="text-base sm:text-xl">▪ {point2}</p>
-          <p className="text-base sm:text-xl">▪ {point3}</p>
+          <p className="font-bold sm:text-xl ">▪ {point1}</p>
+          <p className="font-bold sm:text-xl ">▪ {point2}</p>
+          <p className="font-bold sm:text-xl ">▪ {point3}</p>
         </div>
       </div>
       <Link
