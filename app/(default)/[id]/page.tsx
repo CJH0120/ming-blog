@@ -37,7 +37,7 @@ const PostCard = ({ coupangLink, imageLink, point1, point2, point3, productName 
           <button className="hidden sm:block w-full group relative inline-block overflow-hidden border border-indigo-600 px-8 py-3 focus:outline-none focus:ring">
             <span className="absolute inset-y-0 left-0 w-[2px] bg-indigo-600 transition-all group-hover:w-full group-active:bg-indigo-500"></span>
 
-            <Link href={coupangLink} className="relative text-sm font-medium text-indigo-600 transition-colors group-hover:text-white">
+            <Link href={coupangLink} target="_blank" className="relative text-sm font-medium text-indigo-600 transition-colors group-hover:text-white">
               자세히 보기
             </Link>
           </button>
@@ -50,6 +50,7 @@ const PostCard = ({ coupangLink, imageLink, point1, point2, point3, productName 
       </div>
       <Link
         href={coupangLink}
+        target="_blank"
         className=" sm:hidden mt-5 w-full group relative inline-block overflow-hidden border border-indigo-600 px-8 py-3 focus:outline-none focus:ring"
       >
         <span className="absolute inset-y-0 left-0 w-[2px] bg-indigo-600 transition-all group-hover:w-full group-active:bg-indigo-500"></span>
