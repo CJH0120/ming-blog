@@ -1,4 +1,3 @@
-'use server'
 import ImageProxy from '@/components/Image'
 import { usePage } from '@/utils/apiHook'
 import { getPost, getPostDetail, getPostMeta } from '@/utils/post'
