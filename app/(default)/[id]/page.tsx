@@ -1,4 +1,3 @@
-'use server'
 import ImageProxy from '@/components/Image'
 import { usePage } from '@/utils/apiHook'
 import { getPost, getPostDetail, getPostMeta } from '@/utils/post'
@@ -58,10 +57,10 @@ const PostCard = ({ coupangLink, imageLink, point1, point2, point3, productName 
     </div>
   )
 }
-export const runtime = 'edge'
+
 // 내생각에는 얘는 그냥 빌드를 위한 함수 같음
 export async function generateStaticParams() {
-  const posts = await getPost()
+  const posts = await getPost() // 내림차순으로 정렬한 모든 게시글을 불러와서
   return posts.map((post: { id: string }) => ({
     postId: post.id.toString(),
   }))
