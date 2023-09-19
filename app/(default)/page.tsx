@@ -19,6 +19,10 @@ export default function Home() {
   return (
     <>
       <title>밍밍이의 리뷰</title>
+      <meta
+        name="description"
+        content="밍밍이 블로그에서는 다양한 제품 및 아이디어를 추천하고, 일상 생활을 향상시키는 노하우를 공유합니다. 최신 트렌드와 유용한 제품 정보를 찾고 계시다면, 밍밍이의 블로그에서 유용한 정보를 찾아보세요."
+      />
       <SubHeader activeLink={activeMenu} handleMenu={handleMenu} />
       <div
         className="py-10 h-full h-full grid max-w-[1200px] m-auto gap-5 justify-center sm:justify-start"

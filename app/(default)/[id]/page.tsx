@@ -38,7 +38,7 @@ const PostId = async ({ params }: Props) => {
               </div>
               <div className="w-fill flex  justify-center	 items-center flex-col">
                 <p className="w-full text-right sm:text-left">이전</p>{' '}
-                <p className="text-ellipsis overflow-hidden w-ful whitespace-wrap font-bold   sm:w-[230px] sm:whitespace-nowrap	  ">{data.prev.title}</p>
+                <p className="text-ellipsis overflow-hidden w-full whitespace-wrap font-bold   sm:w-[230px] sm:whitespace-nowrap	  ">{data.prev.title}</p>
               </div>
             </Link>
           )}
