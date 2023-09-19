@@ -25,7 +25,6 @@ export const getPost = async (): Promise<{ id: string; regDate: Date }[]> => {
 export const getPostDetail = async (id: string): Promise<API.Detail> => {
   return fetcher(`${apiUrl}/api/post/getpost/${id}`, {
     method: 'GET',
-    cache: 'force-cache',
   })
 }
 export const getPostMeta = async (id: string): Promise<API.Meta> => {
