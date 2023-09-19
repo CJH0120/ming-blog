@@ -5,7 +5,7 @@ export default async function Sitemap(): Promise<MetadataRoute.Sitemap> {
   const post = await getPost()
   const posts: MetadataRoute.Sitemap = post.map((v) => ({
     url: process.env.NEXT_PUBLIC_BASE_URL + `${v.id}`,
-    lastModified: new Date(),
+    lastModified: new Date(v.regDate),
     changeFrequency: 'always',
   }))
   return [
