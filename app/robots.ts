@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: '/amdin/**',
+      disallow: '/admin/**',
     },
     sitemap: 'https://www.mmew.site/sitemap.xml',
   }

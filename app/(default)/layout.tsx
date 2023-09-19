@@ -1,13 +1,16 @@
 'use client'
 import '../globals.css'
 import Link from 'next/link'
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from '@vercel/analytics/react'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="kr">
+      <head>
+        <meta name="naver-site-verification" content="e489594cb137693445d37999885009aa3104e7bd" />
+      </head>
       <body className="w-full h-full min-h-screen ">
-      <Analytics />
+        <Analytics />
         <header className="w-full h-[80px] border-b-[1px]	 " style={{ background: '#fff' }}>
           <h1 className="max-w-[1200px] flex justify-start	items-center px-4  w-full  text-2xl	m-auto h-full">
             <Link href={'/'}>{process.env.NEXT_PUBLIC_ID}의 리뷰</Link>
