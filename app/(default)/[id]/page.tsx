@@ -112,20 +112,15 @@ export async function generateStaticParams() {
 
 export const generateMetadata = async ({ params }: any): Promise<Metadata> => {
   const data = await getPostMeta(params.id)
+  console.log(data)
   return {
-    title: `${data.title} | ${process.env.NEXT_PUBLIC_ID}의 리뷰`,
-    description: `${data.content}\n ${data.content.map((v, idx) => `${idx + 1}.${v}`)}`,
     openGraph: {
       type: 'website',
       url: process.env.NEXT_PUBLIC_BASE_URL + params.id,
       title: `${data.title} | ${process.env.NEXT_PUBLIC_ID}의 리뷰`,
       description: `${data.content.map((v, idx) => `${idx + 1}.${v}`)}`,
       siteName: `${process.env.NEXT_PUBLIC_ID}의 리뷰`,
-      images: [
-        {
-          url: data.thumbnail,
-        },
-      ],
+      // images: [...data.thumbnail],
     },
   }
 }

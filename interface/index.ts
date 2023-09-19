@@ -23,6 +23,7 @@ namespace API {
   export interface Meta {
     title: string
     content: string[]
+    thumbnail: string
   }
 }
 

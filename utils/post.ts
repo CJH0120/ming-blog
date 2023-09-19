@@ -30,7 +30,8 @@ export const getPostDetail = async (id: string): Promise<API.Detail> => {
 export const getPostMeta = async (id: string): Promise<API.Meta> => {
   return fetcher(`${apiUrl}/api/post/getpost/meta/${id}`, {
     method: 'GET',
-    next: { revalidate: 15 },
+    cache: 'force-cache',
+    // next: { revalidate: 15 },
   })
 }
 

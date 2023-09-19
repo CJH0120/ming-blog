@@ -5,7 +5,7 @@ const mariaDB = MariaDB.getInstance()
 export async function GET(req: Request, contents: any) {
   const { id } = contents.params
 
-  const metaTitle = await mariaDB.query<{ title: string; thumbnail: string }[]>(
+  const meta = await mariaDB.query<{ title: string; thumbnail: string }[]>(
     `
     SELECT title,thumbnail  FROM  post  WHERE  id = ?;
       `,
@@ -17,13 +17,14 @@ export async function GET(req: Request, contents: any) {
       `,
     [id],
   )
-  const title = metaTitle[0]?.title || ''
-  const thumbnail = metaTitle[0]?.thumbnail || ''
+  const title = meta[0]?.title || ''
+  const thumbnail = meta[0]?.thumbnail || ''
   const content = metaContent.map((row) => row.productName)
   const data: API.Meta = {
     title,
     content,
     thumbnail,
   }
+  console.log(data)
   return NextResponse.json(data)
 }
