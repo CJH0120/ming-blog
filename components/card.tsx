@@ -16,7 +16,7 @@ const Card = ({ comment, id, keyword, regDate, thumbnail, title }: API.Card) => 
             {regDate}
           </time>
           <h2 className="h-[56px] mt-0.5 text-lg text-gray-900 text-ellipsis overflow-hidden  line-clamp-2	 ">{title}</h2>
-          <p className="mt-2 line-clamp-3 text-sm/relaxed text-gray-500 h-[50px] text-ellipsis overflow-hidden font-bold  sm:w-[230px] sm:whitespace-nowrap	">
+          <p className="mt-2 line-clamp-3 text-sm/relaxed text-gray-500 h-[50px] text-ellipsis overflow-hidden line-clamp-2 font-bold ">
             {keyword} 추천 상품을 찾고 계신가요?
             {comment}
           </p>
