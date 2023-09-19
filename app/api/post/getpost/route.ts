@@ -3,9 +3,9 @@ import { NextResponse } from 'next/server'
 
 const mariaDB = MariaDB.getInstance()
 export async function GET() {
-  const data = await mariaDB.query<string[]>(
+  const data = await mariaDB.query<{ id: string; regDate: string }[]>(
     `
-      SELECT  id FROM  post ;
+      SELECT  id,regDate FROM  post ;
       `,
   )
   return NextResponse.json(data)

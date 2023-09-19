@@ -1,6 +1,7 @@
 import ImageProxy from '@/components/Image'
+import IconPrev from '@/components/icon/ic-prev'
 import { usePage } from '@/utils/apiHook'
-import { getPost, getPostDetail, getPostMeta } from '@/utils/post'
+import post, { getPost, getPostDetail, getPostMeta } from '@/utils/post'
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -31,15 +32,27 @@ const PostId = async ({ params }: Props) => {
       <div className="w-full flex mt-10 justify-between items-center flex-col sm:flex-row gap-5">
         <div className="w-full flex justify-start	 items-center">
           {data.prev && (
-            <Link href={`/${data.prev.id}`} className="flex flex-col gap-2 sm:w-[220px] border p-2 ">
-              <span>이전</span> <p>{data.prev.title}</p>
+            <Link href={`/${data.prev.id}`} className="flex  gap-2    rounded-lg	sm:w-[320px] border p-2 w-full flex justify-between	 items-center ">
+              <div className="flex  justify-center	 items-center h-full ">
+                <IconPrev className="text-xl" style={{ fontSize: '40px' }} />
+              </div>
+              <div className="w-fill flex  justify-center	 items-center flex-col">
+                <p className="w-full text-right sm:text-left">이전</p>{' '}
+                <p className="text-ellipsis overflow-hidden w-ful whitespace-wrap font-bold   sm:w-[230px] sm:whitespace-nowrap	  ">{data.prev.title}</p>
+              </div>
             </Link>
           )}
         </div>
-        <div className="w-full">
+        <div className="w-full h-full flex justify-end	 items-center">
           {data.next && (
-            <Link href={`/${data.next.id}`} className="flex flex-col gap-2  sm:w-[220px] border p-2 w-full flex justify-end	 items-center">
-              <span>다음</span> <p>{data.next.title}</p>
+            <Link href={`/${data.next.id}`} className="flex   gap-2 rounded-lg	 sm:w-[320px] border p-2 w-full flex justify-between	 items-center ">
+              <div className="w-fill flex  justify-center	 items-center flex-col">
+                <p className="w-full text-left sm:text-right ">다음</p>{' '}
+                <p className="text-ellipsis overflow-hidden w-full h-[24px] font-bold  sm:w-[230px] sm:whitespace-nowrap	  ">{data.next.title}</p>
+              </div>
+              <div className="flex  justify-center	 items-center h-full ">
+                <IconPrev className="text-xl rotate-180" style={{ fontSize: '40px' }} />
+              </div>
             </Link>
           )}
         </div>

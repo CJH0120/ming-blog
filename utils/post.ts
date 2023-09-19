@@ -15,7 +15,7 @@ export const addPost = async (writeData: writeData, addData: AddCoupangProps[]) 
 }
 const apiUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://127.0.0.1:4545'
 
-export const getPost = async (): Promise<{ id: string }[]> => {
+export const getPost = async (): Promise<{ id: string; regDate: Date }[]> => {
   return fetcher(`${apiUrl}/api/post/getpost`, {
     method: 'GET',
     next: { revalidate: 15 },
@@ -25,6 +25,7 @@ export const getPost = async (): Promise<{ id: string }[]> => {
 export const getPostDetail = async (id: string): Promise<API.Detail> => {
   return fetcher(`${apiUrl}/api/post/getpost/${id}`, {
     method: 'GET',
+    cache: 'force-cache',
   })
 }
 export const getPostMeta = async (id: string): Promise<API.Meta> => {
