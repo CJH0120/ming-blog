@@ -120,7 +120,7 @@ export const generateMetadata = async ({ params }: any): Promise<Metadata> => {
       title: `${data.title} | ${process.env.NEXT_PUBLIC_ID}의 리뷰`,
       description: `${data.content.map((v, idx) => `${idx + 1}.${v}`)}`,
       siteName: `${process.env.NEXT_PUBLIC_ID}의 리뷰`,
-      // images: [...data.thumbnail],
+      images: [...data.thumbnail],
     },
   }
 }
