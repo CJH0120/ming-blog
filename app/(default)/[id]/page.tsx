@@ -9,7 +9,7 @@ import { notFound } from 'next/navigation'
 const PostId = async ({ params }: Props) => {
   const data = await getPostDetail(params.id)
   if (!data.post) return notFound()
-  const dateObject: any = new Date(data.post.regDate)
+  const dateObject: any = new Date(data.post?.regDate)
   const year: number = dateObject.getFullYear()
   const month: number = dateObject.getMonth() + 1
   const day: number = dateObject.getDate()
@@ -101,7 +101,6 @@ const PostCard = ({ coupangLink, imageLink, point1, point2, point3, productName 
     </div>
   )
 }
-
 // 내생각에는 얘는 그냥 빌드를 위한 함수 같음
 export async function generateStaticParams() {
   const posts = await getPost() // 내림차순으로 정렬한 모든 게시글을 불러와서
@@ -120,7 +119,7 @@ export const generateMetadata = async ({ params }: any): Promise<Metadata> => {
       title: `${data.title} | ${process.env.NEXT_PUBLIC_ID}의 리뷰`,
       description: `${data.content.map((v, idx) => `${idx + 1}.${v}`)}`,
       siteName: `${process.env.NEXT_PUBLIC_ID}의 리뷰`,
-      images: [...data.thumbnail],
+      images: [{ url: data.thumbnail, height: 600, width: 800 }],
     },
   }
 }
