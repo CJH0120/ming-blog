@@ -25,6 +25,5 @@ export async function GET(req: Request, contents: any) {
     content,
     thumbnail,
   }
-  console.log(data)
   return NextResponse.json(data)
 }
