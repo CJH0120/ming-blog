@@ -26,9 +26,7 @@ const PostId = async ({ params }: Props) => {
       {data.product.map((v) => (
         <PostCard {...v} key={v.productName} />
       ))}
-      <p className="mt-5 w-full text-center " style={{ color: '#E2E2E2' }}>
-        이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.
-      </p>
+      <p className="mt-5 w-full text-center ">이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
       <div className="w-full flex mt-10 justify-between items-center flex-col sm:flex-row gap-5">
         <div className="w-full flex justify-start	 items-center">
           {data.prev && (
