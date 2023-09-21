@@ -12,6 +12,8 @@ export async function GET(req: Request, content: any) {
     const data = await mariaDB.query<API.Card[]>(
       `
       select id,thumbnail,keyword,comment,regDate,title from post 
+      ORDER BY regDate DESC;
+
       `,
     )
 
@@ -19,7 +21,9 @@ export async function GET(req: Request, content: any) {
   } else {
     const data = await mariaDB.query<API.Card[]>(
       `
-      select id,thumbnail,keyword,comment,regDate,title from post WHERE  category =?;
+      select id,thumbnail,keyword,comment,regDate,title from post WHERE  category =?
+      ORDER BY regDate DESC;
+
       `,
       [param],
     )

@@ -33,7 +33,7 @@ export async function GET(req: Request, content: any) {
     `,
       [num],
     )
-  )[0] // 결과가 배열이므로 [0]을 사용하여 첫 번째 요소를 가져옴
+  )[0]
 
   const data: API.Detail = { post: postData[0], product: detailData, next: postNextData, prev: PrevData }
 
