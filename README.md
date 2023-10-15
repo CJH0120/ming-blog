@@ -1,5 +1,5 @@
-<a href="https://www.mmew.site/"><h1>Nextjs App 연습 </h1></a>
 
+[Nextjs App 연습 ] (https://www.mmew.site/)
 <ul>기술스택 
 <li>NextJs 13 App</li>
  <li>mariaDB</li>
