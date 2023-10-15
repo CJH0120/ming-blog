@@ -1,5 +1,5 @@
 
-### [Nextjs App]([http://zeldahagoshipda.com](https://www.mmew.site/))
+### [Nextjs App](https://www.mmew.site/)
 <ul>기술스택 
 <li>NextJs 13 App</li>
  <li>mariaDB</li>
